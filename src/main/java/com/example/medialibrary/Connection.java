@@ -3,13 +3,13 @@ package com.example.medialibrary;
 import java.sql.DriverManager;
 
 import static com.example.medialibrary.StaticVariables.dbURL;
-import static com.example.medialibrary.StaticVariables.dbUser;
-import static com.example.medialibrary.StaticVariables.dbPass;
+//import static com.example.medialibrary.StaticVariables.dbUser;
+//import static com.example.medialibrary.StaticVariables.dbPass;
 
 public class Connection {
     public static void connect() {
         try {
-            java.sql.Connection conn = DriverManager.getConnection(dbURL,dbUser,dbPass);
+            java.sql.Connection conn = DriverManager.getConnection(dbURL);
             System.out.println("Connection successful!");
 
             conn.close();
