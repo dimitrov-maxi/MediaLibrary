@@ -1,65 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="475.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="327.0" fitWidth="225.0" pickOnBounds="true" preserveRatio="true" />
-      <VBox prefHeight="327.0" prefWidth="112.0" spacing="50.0">
+      <VBox layoutX="266.0" layoutY="10.0" prefHeight="327.0" prefWidth="230.0" spacing="50.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Book Name:" wrappingWidth="123.13671875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Author:" wrappingWidth="128.13671875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Genres:" wrappingWidth="127.13671875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Year" wrappingWidth="127.13671875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-         </children>
-         <padding>
-            <Insets bottom="30.0" top="30.0" />
-         </padding>
-      </VBox>
-      <VBox layoutX="266.0" layoutY="10.0" prefHeight="327.0" prefWidth="103.0" spacing="50.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="106.13671875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="author" wrappingWidth="117.13671875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="genre" wrappingWidth="113.13671875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="year" wrappingWidth="120.13671875">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Text>
+            <Label alignment="TOP_LEFT" text="Name" />
+            <Label text="Author" />
+            <Label text="Genre" />
+            <Label text="Year" />
          </children>
          <padding>
             <Insets top="30.0" />
