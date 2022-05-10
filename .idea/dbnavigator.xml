@@ -17,7 +17,7 @@
       <scope value="GLOBAL" />
       <destination value="FILE" />
       <format value="EXCEL" />
-      <charset value="windows-1252" />
+      <charset value="UTF-8" />
     </export-instructions>
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -77,7 +77,7 @@
           <config-type value="BASIC" />
           <database-version value="5.5" />
           <driver-source value="EXTERNAL" />
-          <driver-library value="F:\Programming\IntelliJ Projects\MediaLibrary\src\main\resources\com\example\medialibrary\mysql-connector-java-8.0.29.jar" />
+          <driver-library value="$PROJECT_DIR$/F:/Programming/IntelliJ Projects/MediaLibrary/src/main/resources/com/example/medialibrary/mysql-connector-java-8.0.29.jar" />
           <driver value="com.mysql.cj.jdbc.Driver" />
           <url-type value="DATABASE" />
           <host value="localhost" />
