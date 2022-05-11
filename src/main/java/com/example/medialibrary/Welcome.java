@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class Welcome implements Initializable {
+public class Welcome {
 
     @FXML
     private Label Name,Author,Genre,Year;

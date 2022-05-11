@@ -14,7 +14,7 @@ public class Starter  extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Starter.class.getResource("Welcome.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
+        stage.setTitle("MediaLibrary");
         stage.setScene(scene);
         stage.show();
     }

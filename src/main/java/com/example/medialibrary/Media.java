@@ -2,11 +2,13 @@ package com.example.medialibrary;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class Media {
 
-    private String name,author,genre,year,description,img;
+    private String name,author,genre,year,description;
+    private Image img;
 
     public String getName() {
         return name;
@@ -48,11 +50,12 @@ public class Media {
         this.description = description;
     }
 
-    public String getImg() {
+    public Image getImg() {
         return img;
     }
 
-    public void setImg(String img) {
+    public void setImg(Image img) {
         this.img = img;
     }
+
 }
