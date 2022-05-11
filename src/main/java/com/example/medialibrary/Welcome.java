@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class Welcome {
+public class Welcome implements Initializable{
 
     @FXML
     private Label Name,Author,Genre,Year;
@@ -25,7 +26,7 @@ public class Welcome {
 
     private List<Media> media = new ArrayList<>();
 
-    private List<Media> media = List<Media> getData(){
+    private List<Media> getData(){
         List<Media> media = new ArrayList<>();
         Media book;
 
@@ -35,7 +36,7 @@ public class Welcome {
             book.setAuthor("Stephen King");
             book.setGenre("Horror");
             book.setYear("2020");
-            book.setImg("resources\\Drivers\\images.jpg");
+            book.setImg(new Image("resources/Drivers/pictures.jpg"));
             media.add(book);
         }
         return media;
@@ -55,7 +56,7 @@ public class Welcome {
 
 
             Media media = loader.getController();
-            media.setData(media.get(i));
+            //media.setData(media.get(i));
 
             if (column==3){
                 column =0;
