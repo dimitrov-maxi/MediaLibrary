@@ -6,21 +6,32 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class MediaController {
+
     @FXML
-    private Label Name,Author,Genre,Year;
+    private ImageView Img;
+
     @FXML
-    private ImageView Pic;
+    private Label authorLabel;
+
+    @FXML
+    private Label genreLabel;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label yearLabel;
 
     private Media media;
 
     public void setData(Media media){
         this.media = media;
-        Name.setText(media.getName());
-        Author.setText(media.getAuthor());
-        Genre.setText(media.getGenre());
-        Year.setText(media.getYear());
-        Image image = new Image(getClass().getResourceAsStream(media.getImg()));
-        Pic.setImage(image);
+        nameLabel.setText(media.getName());
+        authorLabel.setText(media.getAuthor());
+        genreLabel.setText(media.getGenre());
+        yearLabel.setText(media.getYear());
+        //Image image = new Image(getClass().getResourceAsStream(media.getImg("dada")));
+        Img.setImage(new Image("resources/Drivers/pictures.jpg"));
 
     }
 }
