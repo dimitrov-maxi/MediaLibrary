@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
@@ -22,16 +24,27 @@ public class Welcome implements Initializable{
 //    @FXML
 //    private Label Name,Author,Genre,Year;
 //    private ImageView Pic;
+    @FXML
+    private ImageView Img;
+
+    @FXML
+    private Label authorLabel;
+
+    @FXML
+    private Label genreLabel;
+
+    @FXML
+    private Label nameLabel;
+
+    @FXML
+    private Label yearLabel;
 
     @FXML
     private GridPane grid;
     @FXML
     private ScrollPane scroll;
 
-    private List<Media> media = new ArrayList<>();
-
-    public Welcome() {
-    }
+    private static List<Media> media = new ArrayList<>();
 
     private List<Media> getData(){
         List<Media> media = new ArrayList<>();
@@ -70,28 +83,48 @@ public class Welcome implements Initializable{
             book.setImg(new Image("resources/Drivers/pictures.jpg"));
             media.add(book);
 
+
         //  }
         return media;
     }
+
+//    private void setChosenMedia(Media media) {
+//        nameLabel.setText(media.getName());
+//        authorLabel.setText(media.getAuthor());
+//        genreLabel.setText(media.getGenre());
+//        yearLabel.setText(media.getYear());
+//        //Img = new Image(getClass().getResourceAsStream(media.getImg());
+//
+//    }
+
+//    public static void printMedia(){
+//        for (int i = 0; i < media.size();i++)
+//        {
+//            System.out.println(media.get(i).toString());
+//        }
+//    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources){
         media.addAll(getData());
+//        if (media.size() > 0) {
+//            setChosenMedia(media.get(0));
+//        }
         int column = 0;
         int row = 1;
 
         try{
         for (int i = 0; i < media.size(); i++) {
+            System.out.println(media.get(i).toString());
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("Media.fxml"));
-
             AnchorPane anchor = loader.load();
-
 
             MediaController mediaController = loader.getController();
             mediaController.setData(media.get(i));
 
             if (column==3){
-                column =0;
+                column=0;
                 row++;
             }
 

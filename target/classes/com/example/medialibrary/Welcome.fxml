@@ -21,7 +21,7 @@
             <VBox prefHeight="484.0" prefWidth="235.0" />
             <ScrollPane fx:id="scroll" prefHeight="484.0" prefWidth="646.0">
                <content>
-                  <GridPane fx:id="grid" prefHeight="103.0" prefWidth="100.0">
+                  <GridPane fx:id="grid" prefHeight="0.0" prefWidth="0.0">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>

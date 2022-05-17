@@ -10,6 +10,7 @@ public class Media {
     private String name,author,genre,year,description;
     private Image img;
 
+
     public String getName() {
         return name;
     }
@@ -58,4 +59,16 @@ public class Media {
         this.img = img;
     }
 
+
+    @Override
+    public String toString() {
+        return "Media{" +
+                "name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                ", year='" + year + '\'' +
+                ", description='" + description + '\'' +
+                ", img=" + img +
+                '}';
+    }
 }
