@@ -5,10 +5,15 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.sql.Blob;
+
 public class Media {
 
     private String name,author,genre,year,description;
     private Image img;
+
+    public Media(String name, String author, String genre, String year, String description, Blob picture) {
+    }
 
 
     public String getName() {
@@ -60,15 +65,15 @@ public class Media {
     }
 
 
-    @Override
-    public String toString() {
-        return "Media{" +
-                "name='" + name + '\'' +
-                ", author='" + author + '\'' +
-                ", genre='" + genre + '\'' +
-                ", year='" + year + '\'' +
-                ", description='" + description + '\'' +
-                ", img=" + img +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Media{" +
+//                "name='" + name + '\'' +
+//                ", author='" + author + '\'' +
+//                ", genre='" + genre + '\'' +
+//                ", year='" + year + '\'' +
+//                ", description='" + description + '\'' +
+//                ", img=" + img +
+//                '}';
+//    }
 }
