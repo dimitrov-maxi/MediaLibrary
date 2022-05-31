@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 import static com.example.medialibrary.StaticVariables.dbURL;
 
 
-public class LoginPanel {
+public class Welcome {
     private Stage stage;
     @FXML
     private Button Admin;

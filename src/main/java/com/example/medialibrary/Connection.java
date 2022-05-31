@@ -40,6 +40,17 @@ public class Connection {
         return false;
 
     }
+    public static void insertUser(String addUserQuery) {
+        try {
+            java.sql.Connection conn = null;
+            conn = DriverManager.getConnection(dbURL);
+            PreparedStatement InsertUser = conn.prepareStatement(addUserQuery);
+            InsertUser.executeUpdate();
+            conn.close();
+        } catch (Exception ConnErr) {
+            System.out.print("Did not connect to DB - Error: " + ConnErr);
+        }
+    }
 
 //    public void FillMedia(){
 //        try {

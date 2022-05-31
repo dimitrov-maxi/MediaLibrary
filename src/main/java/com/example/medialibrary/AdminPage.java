@@ -49,7 +49,14 @@ public class AdminPage implements Initializable{
     @FXML
     private TableColumn<Media, Integer> YearCol;
 
-    public AdminPage() {
+    public AdminPage(TableView<Media> books, TableColumn<Media, String> authorCol, TableColumn<Media, String> genreCol, TableColumn<Media, String> nameCol, TableColumn<Media, Boolean> orderCol, TableColumn<Media, Image> picCol, TableColumn<Media, Integer> yearCol) {
+        Books = books;
+        AuthorCol = authorCol;
+        GenreCol = genreCol;
+        NameCol = nameCol;
+        OrderCol = orderCol;
+        PicCol = picCol;
+        YearCol = yearCol;
     }
 
     @FXML
@@ -87,6 +94,8 @@ public class AdminPage implements Initializable{
                         rs.getString("Description"),
                         rs.getBlob("Picture")));
             }
+            statement.close();
+            rs.close();
             conn.close();
         } catch (Exception ConnErr) {
             System.out.print("Did not connect to DB - Error: " + ConnErr);
