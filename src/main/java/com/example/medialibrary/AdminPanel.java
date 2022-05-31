@@ -24,7 +24,7 @@ public class AdminPanel {
 
         @FXML
         void goBack(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("LoginPanel.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -47,7 +47,7 @@ public class AdminPanel {
 
         @FXML
         private void switchToPage(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("AdminPage.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AdminPge.fxml"));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);

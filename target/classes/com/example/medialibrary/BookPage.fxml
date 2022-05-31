@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Text layoutX="341.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome!" wrappingWidth="244.576171875">
+            <font>
+                <Font name="Comic Sans MS" size="48.0" />
+            </font>
+        </Text>
+        <TableView fx:id="Books" layoutX="83.0" layoutY="116.0" prefHeight="391.0" prefWidth="541.0">
+            <columns>
+                <TableColumn fx:id="PicCol" minWidth="30.0" prefWidth="75.0" resizable="false" sortable="false" text="Picture" />
+                <TableColumn fx:id="NameCol" prefWidth="75.0" text="Name" />
+                <TableColumn fx:id="AuthorCol" prefWidth="75.0" text="Author" />
+                <TableColumn fx:id="GenreCol" prefWidth="75.0" text="Genre" />
+                <TableColumn fx:id="YearCol" prefWidth="75.0" text="Year" />
+                <TableColumn fx:id="OrderCol" prefWidth="75.0" text="Order" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
