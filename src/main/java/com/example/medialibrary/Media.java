@@ -9,10 +9,10 @@ import java.sql.Blob;
 
 public class Media {
 
-    private String name,author,genre,year,description;
+    private String name,author,genre,year,description, quantity;
     private Image img;
 
-    public Media(String name, String author, String genre, String year, String description, Blob picture) {
+    public Media(String name, String author, String genre, String year, String description, String quantity/*, Blob picture*/) {
     }
 
 
@@ -64,7 +64,13 @@ public class Media {
         this.img = img;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
 
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 //    @Override
 //    public String toString() {
 //        return "Media{" +

@@ -52,6 +52,18 @@ public class Connection {
         }
     }
 
+    public static void insertAdmin(String addAdminQuery) {
+        try {
+            java.sql.Connection conn = null;
+            conn = DriverManager.getConnection(dbURL);
+            PreparedStatement InsertUser = conn.prepareStatement(addAdminQuery);
+            InsertUser.executeUpdate();
+            conn.close();
+        } catch (Exception ConnErr) {
+            System.out.print("Did not connect to DB - Error: " + ConnErr);
+        }
+    }
+
 //    public void FillMedia(){
 //        try {
 //            Media book = new Media();

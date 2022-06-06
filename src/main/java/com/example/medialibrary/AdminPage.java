@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -21,6 +22,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import static com.example.medialibrary.Connection.insertAdmin;
 import static com.example.medialibrary.StaticVariables.dbURL;
 
 public class AdminPage implements Initializable{
@@ -41,31 +43,36 @@ public class AdminPage implements Initializable{
     private TableColumn<Media, String> NameCol;
 
     @FXML
-    private TableColumn<Media, Boolean> OrderCol;
-
-    @FXML
-    private TableColumn<Media, Image> PicCol;
-
-    @FXML
     private TableColumn<Media, Integer> YearCol;
 
-    public AdminPage(TableView<Media> books, TableColumn<Media, String> authorCol, TableColumn<Media, String> genreCol, TableColumn<Media, String> nameCol, TableColumn<Media, Boolean> orderCol, TableColumn<Media, Image> picCol, TableColumn<Media, Integer> yearCol) {
-        Books = books;
-        AuthorCol = authorCol;
-        GenreCol = genreCol;
-        NameCol = nameCol;
-        OrderCol = orderCol;
-        PicCol = picCol;
-        YearCol = yearCol;
-    }
+    @FXML
+    private TableColumn<Media, Integer> Quantity;
+
+    @FXML
+    private TextField adminEmail;
+
+    @FXML
+    private TextField adminPass;
+
 
     @FXML
     void logOut(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("LoginPanel.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Welcome.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    void registerAdmin() {
+        String email = adminEmail.getText();
+        String pass = adminPass.getText();
+
+        if (pass.length() >= 4){
+            String addAdminQuery = "INSERT INTO AdminInfo(`email`, `password`) VALUES (`"+ email +"`, `" + pass + "`);";
+            insertAdmin(addAdminQuery);
+        }
     }
 
 
@@ -74,9 +81,9 @@ public class AdminPage implements Initializable{
         ObservableList<Media> MediaList = null;
         try {
             java.sql.Connection conn = DriverManager.getConnection(dbURL);
-            System.out.println("Connection successful!");
+            //System.out.println("Connection successful!");
             String Query = """
-                    SELECT Name, Author,Year, Genre, Description, Picture
+                    SELECT Name, Author,Year, Genre, Description, Picture, Quantity
                     FROM Media m\s
                     Left JOIN MediaDetails md\s
                     ON m.ID = md.ID;""";
@@ -92,7 +99,8 @@ public class AdminPage implements Initializable{
                         rs.getString("Genre"),
                         rs.getString("Year"),
                         rs.getString("Description"),
-                        rs.getBlob("Picture")));
+                        rs.getString("Quantity")
+                        /*rs.getBlob("Picture")*/));
             }
             statement.close();
             rs.close();
@@ -100,11 +108,11 @@ public class AdminPage implements Initializable{
         } catch (Exception ConnErr) {
             System.out.print("Did not connect to DB - Error: " + ConnErr);
         }
-        NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        AuthorCol.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
-        GenreCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
-        PicCol.setCellValueFactory(new PropertyValueFactory<>("Picture"));
+        NameCol.setCellValueFactory(new PropertyValueFactory<Media, String>("Name"));
+        AuthorCol.setCellValueFactory(new PropertyValueFactory<>("Author"));
+        GenreCol.setCellValueFactory(new PropertyValueFactory<>("Genre"));
         YearCol.setCellValueFactory(new PropertyValueFactory<>("Year"));
+        Quantity.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
 
 
         Books.setItems(null);

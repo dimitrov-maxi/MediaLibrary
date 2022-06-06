@@ -59,11 +59,11 @@ public class BookPage implements Initializable {
     @FXML
     private TableColumn<Media, String> NameCol;
 
-    @FXML
-    private TableColumn<Media, Boolean> OrderCol;
+//    @FXML
+//    private TableColumn<Media, Boolean> OrderCol;
 
-    @FXML
-    private TableColumn<Media, Image> PicCol;
+//    @FXML
+//    private TableColumn<Media, Image> PicCol;
 
     @FXML
     private TableColumn<Media, Integer> YearCol;
@@ -75,7 +75,7 @@ public class BookPage implements Initializable {
             java.sql.Connection conn = DriverManager.getConnection(dbURL);
             System.out.println("Connection successful!");
             String Query = """
-                    SELECT Name, Author,Year, Genre, Description, Picture
+                    SELECT Name, Author,Year, Genre, Description, Picture, Quantity
                     FROM Media m\s
                     Left JOIN MediaDetails md\s
                     ON m.ID = md.ID;""";
@@ -84,23 +84,24 @@ public class BookPage implements Initializable {
 
             MediaList = FXCollections.observableArrayList();
             while(rs.next()) {
-                System.out.println(rs.getString("Name"));
+                System.out.println(rs.getString("Name") + "||" + rs.getString("Author"));
                 MediaList.add(new Media(
                         rs.getString("Name"),
                         rs.getString("Author"),
                         rs.getString("Genre"),
                         rs.getString("Year"),
                         rs.getString("Description"),
-                        rs.getBlob("Picture")));
+                        rs.getString("Quantity")
+                        /*rs.getBlob("Picture")*/));
             }
             conn.close();
         } catch (Exception ConnErr) {
             System.out.print("Did not connect to DB - Error: " + ConnErr);
         }
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        AuthorCol.setCellValueFactory(new PropertyValueFactory<>("Quantity"));
-        GenreCol.setCellValueFactory(new PropertyValueFactory<>("Price"));
-        PicCol.setCellValueFactory(new PropertyValueFactory<>("Picture"));
+        AuthorCol.setCellValueFactory(new PropertyValueFactory<>("Author"));
+        GenreCol.setCellValueFactory(new PropertyValueFactory<>("Genre"));
+        //PicCol.setCellValueFactory(new PropertyValueFactory<>("Picture"));
         YearCol.setCellValueFactory(new PropertyValueFactory<>("Year"));
 
 
