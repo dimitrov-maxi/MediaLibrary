@@ -70,7 +70,7 @@ public class AdminPage implements Initializable{
         String pass = adminPass.getText();
 
         if (pass.length() >= 4){
-            String addAdminQuery = "INSERT INTO AdminInfo(`email`, `password`) VALUES (`"+ email +"`, `" + pass + "`);";
+            String addAdminQuery = "INSERT INTO AdminInfo(`email`, `password`) VALUES ('"+ email +"', '" + pass + "');";
             insertAdmin(addAdminQuery);
         }
     }

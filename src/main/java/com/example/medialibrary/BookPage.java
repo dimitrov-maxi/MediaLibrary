@@ -94,10 +94,13 @@ public class BookPage implements Initializable {
                         rs.getString("Quantity")
                         /*rs.getBlob("Picture")*/));
             }
+            statement.close();
+            rs.close();
             conn.close();
         } catch (Exception ConnErr) {
             System.out.print("Did not connect to DB - Error: " + ConnErr);
         }
+
         NameCol.setCellValueFactory(new PropertyValueFactory<>("Name"));
         AuthorCol.setCellValueFactory(new PropertyValueFactory<>("Author"));
         GenreCol.setCellValueFactory(new PropertyValueFactory<>("Genre"));
@@ -105,7 +108,7 @@ public class BookPage implements Initializable {
         YearCol.setCellValueFactory(new PropertyValueFactory<>("Year"));
 
 
-        Books.setItems(null);
+        //Books.setItems(null);
         Books.setItems(MediaList);
     }
 }

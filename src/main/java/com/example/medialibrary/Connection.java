@@ -33,6 +33,8 @@ public class Connection {
             if (result.next()) {
                 return true;
             }
+            loginCheck.close();
+            result.close();
             conn.close();
         } catch (Exception ConnErr) {
             System.out.print("Did not connect to DB - Error: " + ConnErr);
@@ -46,6 +48,8 @@ public class Connection {
             conn = DriverManager.getConnection(dbURL);
             PreparedStatement InsertUser = conn.prepareStatement(addUserQuery);
             InsertUser.executeUpdate();
+
+            InsertUser.close();
             conn.close();
         } catch (Exception ConnErr) {
             System.out.print("Did not connect to DB - Error: " + ConnErr);
@@ -56,8 +60,10 @@ public class Connection {
         try {
             java.sql.Connection conn = null;
             conn = DriverManager.getConnection(dbURL);
-            PreparedStatement InsertUser = conn.prepareStatement(addAdminQuery);
-            InsertUser.executeUpdate();
+            PreparedStatement InsertAdmin = conn.prepareStatement(addAdminQuery);
+            InsertAdmin.executeUpdate();
+
+            InsertAdmin.close();
             conn.close();
         } catch (Exception ConnErr) {
             System.out.print("Did not connect to DB - Error: " + ConnErr);
